@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Passenger;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PassengerController extends Controller
 {
@@ -43,6 +44,7 @@ class PassengerController extends Controller
         $billaddr=request('billaddr');
         $pass_email=request('email');
         $Payment=request('payment_method');
+        $price = request('price');
 
         $newpassenger=array('fname'=>$fname,'lname'=>$lname,'billaddr'=>$billaddr,'pass_email'=>$pass_email,'Payment'=>$Payment,'points'=>'0');
 
@@ -56,7 +58,43 @@ class PassengerController extends Controller
 //        $station_query->save();
 
 
-        return view('myReservation',compact('$add_newpass_query'));
+/*        $sq_trip_insert = DB::raw('INSERT INTO trips (
+                  train_id, pass_id, trip_start, trip_end, trip_date,
+                  trip_return_date, payment_method, round_trip, trip_fare,
+                  trip_seg_start, trip_seg_end, cancelled )
+               ( SELECT tuc.train_id, p.pass_id, tuc.station_id, tuc.destination_id,
+                        tuc.depart_date, tuc.return_date, p.pass_id, tuc.roundtrip,
+                        1, 2, 3, 0
+                FROM temp_user_choice tuc
+                INNER JOIN passengers p ON p.pass_id = (SELECT pass_id FROM passengers ORDER BY pass_id DESC LIMIT 1)
+                WHERE temp_id = (SELECT temp_id FROM temp_user_choice ORDER BY temp_id DESC LIMIT 1) )');*/
+$sq_trip_insert = DB::insert('INSERT INTO trips (
+                  train_id, pass_id, trip_start, trip_end, trip_date,
+                  trip_return_date, payment_method, round_trip, trip_fare,
+                  trip_seg_start, trip_seg_end, cancelled )
+               ( SELECT tuc.train_id, p.pass_id, tuc.station_id, tuc.destination_id,
+                        tuc.depart_date, tuc.return_date, p.pass_id, 1,
+                        1, 2, 3, 0
+                FROM temp_user_choice tuc
+                INNER JOIN passengers p ON p.pass_id = (SELECT pass_id FROM passengers ORDER BY pass_id DESC LIMIT 1)
+                WHERE temp_id = (SELECT temp_id FROM temp_user_choice ORDER BY temp_id DESC LIMIT 1) )');
+//$sq_select_last_trip = DB::select( DB::raw('SELECT * FROM trips WHERE trip_id = (SELECT trip_id FROM trips ORDER BY trip_id DESC LIMIT 1)') );
+//$sq_select_last_trip = DB::table('trips')->where('trip_id', '=', 1)->get();
+$sq_select_passenger = DB::select( DB::raw('SELECT * FROM passengers p INNER JOIN trips t ON p.pass_id = (SELECT pass_id FROM trips ORDER BY pass_id DESC LIMIT
+  1) ORDER BY p.pass_id DESC LIMIT 1') );
+
+
+//    $sq_select_last_trip = \DB::table('trips')->where('trip_id', '=', function ($query) {
+//            $query->select('trip_id')->orderBy('trip_id', 'desc')->limit(1);
+//        })->get();
+//        $sq_select_last_trip = \DB::table('trips')->where('trip_id', '1')->get();
+
+
+//SELECT * FROM trips WHERE trip_id = (SELECT trip_id FROM trips ORDER BY trip_id DESC LIMIT 1)
+
+//        return view('myReservation',compact('fname','lname', 'billaddr', 'pass_email', 'Payment'));
+//        return view('myReservation',compact('sq_select_last_trip', 'sq_select_passenger'));
+        return view('myReservation',compact('sq_select_passenger'));
     }
 
     /**

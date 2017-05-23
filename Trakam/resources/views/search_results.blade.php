@@ -15,7 +15,7 @@
 
     <div class="container">
 
-        <div class="row col-md-6 col-md-offset-2 custyle">
+        <div class="row col-md-6 custyle">
             {!! Form::open(['action' => 'TripController@index', 'method' => 'get']) !!}
 
             <table class="table table-striped custab" name="data">
@@ -27,8 +27,13 @@
 
                 <tr name="y">
                     <th>Train ID</th>
-                    <th>Station</th>
-                    <th>Arrival</th>
+                    <th>Origin</th>
+                    <th>Destination Time</th>
+                    <th>Destination Date</th>
+                    <th>Arrival Time</th>
+                    @if($return_date != null)
+                        <th>Arrival Date</th>
+                    @endif
                     <th>Departure</th>
                     <th class="text-center">Action</th>
                 </tr>
@@ -59,16 +64,47 @@
                             </td>
                             </div>
                             <div class="form-group">
-
                             <td>
+                                {{--{!! Form::open(['url' => '/']) !!}--}}
                                 {{--{!! Form::open(['action' => 'TripController@index', 'method' => 'get']) !!}--}}
-                                {!! Form::text('time_in', $stop->time_in) !!}
+                                {!! Form::text('destination_id', $end_station) !!}
                                 {{--{!! Form::submit('Book Now',['class' => 'btn btn-info btn-xs']) !!}--}}
-                                {{--{!! Form::close() !!}--}}
 
                             </td>
-        </div>
 
+                            </div>
+                            <div class="form-group">
+                                <td>
+                                    {{--{!! Form::open(['url' => '/']) !!}--}}
+                                    {{--{!! Form::open(['action' => 'TripController@index', 'method' => 'get']) !!}--}}
+                                    {!! Form::text('depart_date', $depart_date) !!}
+                                    {{--{!! Form::submit('Book Now',['class' => 'btn btn-info btn-xs']) !!}--}}
+
+                                </td>
+
+                            </div>
+                            <div class="form-group">
+
+                                <td>
+                                    {{--{!! Form::open(['action' => 'TripController@index', 'method' => 'get']) !!}--}}
+                                    {!! Form::text('time_in', $stop->time_in) !!}
+                                    {{--{!! Form::submit('Book Now',['class' => 'btn btn-info btn-xs']) !!}--}}
+                                    {{--{!! Form::close() !!}--}}
+
+                                </td>
+                            </div>
+                            @if($return_date != null)
+                                <div class="form-group">
+
+                                    <td>
+                                        {{--{!! Form::open(['action' => 'TripController@index', 'method' => 'get']) !!}--}}
+                                        {!! Form::text('return_date', $return_date) !!}
+                                        {{--{!! Form::submit('Book Now',['class' => 'btn btn-info btn-xs']) !!}--}}
+                                        {{--{!! Form::close() !!}--}}
+
+                                    </td>
+                                </div>
+                            @endif
         {{--<td><strong>{!!Form::label($stop->time_out) !!}</strong></td>--}}
                             <div class="form-group">
 

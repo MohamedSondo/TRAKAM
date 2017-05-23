@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\trainquery;
 use App\Passenger;
+use Illuminate\Support\Facades\DB;
 
 class TripController extends Controller
 {
@@ -16,10 +17,36 @@ class TripController extends Controller
         public function index()
     {
         //
-   dd(request()->all());
+        $train_id=request('train_id');
+        $station_id=request('station_id');
+        $destination_id=request('destination_id');
+        $depart_date=request('depart_date');
+        $return_date=request('return_date');
+        $roundtrip = request('roundtrip');
+        $time_in=request('time_in');
+        $time_out=request('time_out');
+
+        $new_temp_trip = array(
+            'train_id' => $train_id,
+            'station_id' => $station_id,
+            'destination_id' => $destination_id,
+            'depart_date' => $depart_date,
+            'return_date' => $return_date,
+            'roundtrip' => $roundtrip,
+            'time_in' => $time_in,
+            'time_out' => $time_out
+        );
+
+        $new_trip_temp_add = DB::table('temp_user_choice')->insert($new_temp_trip);
+//        $sq_temp_table = DB::table('temp_user_choice')->get()->toArray();
+
+
+//        $sq_add_new_trip = DB::table('trip')->insert();
+//   dd(request()->all());
 
 
 //
+return view('BookTrip');
 //return view('BookTrip');
     }
 
@@ -47,25 +74,25 @@ class TripController extends Controller
 //
 //
 //
-//        $fname=request('fname');
-//        $lname=request('lname');
-//        $billaddr=request('billaddr');
-//        $pass_email=request('email');
-//        $Payment=request('payment_method');
-//
-//        $newpassenger=array('fname'=>$fname,'lname'=>$lname,'billaddr'=>$billaddr,'pass_email'=>$pass_email,'Payment'=>$Payment,'points'=>'0');
-//
-//
-//
+        $fname=request('fname');
+        $lname=request('lname');
+        $billaddr=request('billaddr');
+        $pass_email=request('email');
+        $Payment=request('payment_method');
+
+        $newpassenger=array('fname'=>$fname,'lname'=>$lname,'billaddr'=>$billaddr,'pass_email'=>$pass_email,'Payment'=>$Payment,'points'=>'0');
+
 //
 //
 //
 //
-//        $add_newpass_query=\DB::table('passengers')->insert($newpassenger);
-////        $station_query->save();
 //
 //
-//        return view('myReservation',compact('$add_newpass_query'));
+        $add_newpass_query=\DB::table('passengers')->insert($newpassenger);
+//        $station_query->save();
+//
+//
+        return view('myReservation',compact('$add_newpass_query'));
 
 
 
@@ -151,6 +178,9 @@ class TripController extends Controller
 
 //
        $depart_station =(request('depart_station'));
+       $end_station = (request('destination_station'));
+       $depart_date=(request('depart_date'));
+        $return_date=(request('return_date'));
        $depart_timeofday =(request('timeofday'));
 //
 //        settype($depart_station, "int");
@@ -159,7 +189,7 @@ class TripController extends Controller
 //echo "hello ";
 //
        $stops= \DB::table('stop_at')->where('station_id', $depart_station)->where('timeofday',$depart_timeofday )->get();
-        return view('search_results',compact('stops'));
+        return view('search_results',compact('stops','end_station', 'depart_date', 'return_date' ));
     }
 
 
