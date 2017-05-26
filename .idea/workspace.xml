@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7a57fe3c-c6c7-4454-8181-4d80232e2981" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trakam/app/Http/Controllers/PassengerController.php" afterPath="$PROJECT_DIR$/Trakam/app/Http/Controllers/PassengerController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trakam/app/Http/Controllers/TripController.php" afterPath="$PROJECT_DIR$/Trakam/app/Http/Controllers/TripController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trakam/app/Passenger.php" afterPath="$PROJECT_DIR$/Trakam/app/Passenger.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trakam/resources/views/myReservation.blade.php" afterPath="$PROJECT_DIR$/Trakam/resources/views/myReservation.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trakam/resources/views/notification.blade.php" afterPath="$PROJECT_DIR$/Trakam/resources/views/notification.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Trakam/resources/views/search_results.blade.php" afterPath="$PROJECT_DIR$/Trakam/resources/views/search_results.blade.php" />
-    </list>
+    <list default="true" id="7a57fe3c-c6c7-4454-8181-4d80232e2981" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,31 +59,6 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
-  </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="reservation.trips" pinned="false" current-in-tab="true">
-              <entry file="dbDummy://dbtable:/174f42c8/01b7502a-3fd4-47b7-b3e1-713c555fcde7/reservation.trips">
-                <provider editor-type-id="text-editor">
-                  <state relative-caret-position="153">
-                    <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-                    <folding />
-                  </state>
-                </provider>
-                <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-                  <state>
-                    <filtering enabled="true" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -253,6 +221,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -525,12 +496,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1495480233826</updated>
-      <workItem from="1495480238860" duration="33058000" />
+      <workItem from="1495480238860" duration="33628000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33058000" />
+    <option name="totallyTimeSpent" value="33628000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="720" extended-state="0" />
@@ -683,19 +654,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/174f42c8/01b7502a-3fd4-47b7-b3e1-713c555fcde7/reservation.trips">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/01b7502a-3fd4-47b7-b3e1-713c555fcde7/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="104">
@@ -762,6 +720,19 @@
         <state relative-caret-position="17">
           <caret line="1" column="26" lean-forward="true" selection-start-line="1" selection-start-column="26" selection-end-line="1" selection-end-column="26" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/174f42c8/01b7502a-3fd4-47b7-b3e1-713c555fcde7/reservation.trips">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="26" lean-forward="false" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
